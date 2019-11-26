@@ -46,6 +46,6 @@ int main() {
         a[t]++;
     }
     for (int i=1; i<=10000; i++) {
-        if (a[i] != 0) for (int j=0; j<a[i]; j++) cout << a[i] << "\n";
+        if (a[i] != 0) for (int j=0; j<a[i]; j++) cout << a[i] << '\n';
     }
 }

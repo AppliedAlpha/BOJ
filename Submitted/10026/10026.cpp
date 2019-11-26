@@ -13,12 +13,12 @@ struct state {
 
 void init_visited() {
     for (auto & i : visited) for (bool & j : i)
-        j = false;
+            j = false;
 }
 
 void rg_clear() {
     for (int i=0; i<n; i++) for (int j=0; j<n; j++)
-        if (field[i][j] == 'G') field[i][j] = 'R';
+            if (field[i][j] == 'G') field[i][j] = 'R';
 }
 
 void bfs(int y, int x) {

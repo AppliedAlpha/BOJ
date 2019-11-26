@@ -9,7 +9,6 @@ char field[51][51];
 struct state {
     int i, j;
 };
-vector<state> adj[51][51];
 
 void init() {
     for (auto & i : visited) for (bool & j : i) j = false;
@@ -17,6 +16,7 @@ void init() {
 }
 
 void bfs(int i, int j) {
+    vector<state> adj[51][51];
     queue<state> q;
     visited[i][j] = true;
     q.push(state{i, j});
