@@ -14,7 +14,7 @@ int main() {
     sort(num, num+n);
     int cnt = 0;
     for (int i=0; i<n; i++) {
-        cnt = max(cnt, num[i].second-i); //°¡Àå ¸Ö¸® ¿Â »ç¶÷
+        cnt = max(cnt, num[i].second-i); //ê°€ì¥ ë©€ë¦¬ ì˜¨ ì‚¬ëŒ
     }
     cout << ++cnt;
 }
