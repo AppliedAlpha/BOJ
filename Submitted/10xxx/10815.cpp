@@ -14,6 +14,6 @@ int main() {
     cin >> m;
     while (m--) {
         cin >> t;
-        cout << upper_bound(v.begin(), v.end(), t) - lower_bound(v.begin(), v.end(), t) << ' ';
+        cout << binary_search(v.begin(), v.end(), t) << ' ';
     }
 }
