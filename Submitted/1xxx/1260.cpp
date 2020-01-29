@@ -1,3 +1,63 @@
+//20200125
+#include <iostream>
+#include <vector>
+#include <queue>
+#include <algorithm>
+using namespace std;
+vector<vector<int>> adj;
+vector<bool> visited;
+
+void init_visited() {
+    for (auto && i : visited) i = false;
+}
+
+void dfs(int v) {
+    if (visited[v]) return;
+    visited[v] = true;
+    cout << v << ' ';
+    for (auto i : adj[v]) dfs(i);
+}
+
+void bfs(int v) {
+    queue<int> queue;
+    visited[v] = true;
+    cout << v << ' ';
+    queue.push(v);
+    while (!queue.empty()) {
+        int index = queue.front();
+        queue.pop();
+        for (auto i : adj[index]) {
+            if (visited[i]) continue;
+            visited[i] = true;
+            cout << i << ' ';
+            queue.push(i);
+        }
+    }
+}
+
+int main() {
+    ios_base::sync_with_stdio(false);
+    cin.tie(nullptr);
+    int n, m, v, a, b;
+    cin >> n >> m >> v;
+    adj.resize(n+1);
+    visited.resize(n+1);
+    while (m--) {
+        cin >> a >> b;
+        adj[a].push_back(b);
+        adj[b].push_back(a);
+    }
+    for (auto & i : adj) sort(i.begin(), i.end());
+    dfs(v);
+    cout << '\n';
+    init_visited();
+    bfs(v);
+    return 0;
+}
+
+
+
+//20191118
 #include <iostream>
 #include <vector>
 #include <queue>
