@@ -7,7 +7,7 @@ using namespace std;
 long long dscore = 0, kscore = 0;
 vector<int> dBig, kBig;
 bool notPrime[5000001];
-int called[5000001]; //0=¾È ºÎ¸§ 1=d 2=k
+int called[5000001]; //0=ì•ˆ ë¶€ë¦„ 1=d 2=k
 
 void era() {
     notPrime[0] = notPrime[1] = true;
@@ -60,8 +60,8 @@ int main() {
         play(d, dae);
         play(k, kyu);
     }
-    if (dscore > kscore) cout << "¼Ò¼öÀÇ ½Å °«´ë¿õ";
-    else if (dscore < kscore) cout << "¼Ò¼ö ¸¶½ºÅÍ °«±Ô¼º";
-    else cout << "¿ì¿­À» °¡¸± ¼ö ¾øÀ½";
+    if (dscore > kscore) cout << "ì†Œìˆ˜ì˜ ì‹  ê°“ëŒ€ì›…";
+    else if (dscore < kscore) cout << "ì†Œìˆ˜ ë§ˆìŠ¤í„° ê°“ê·œì„±";
+    else cout << "ìš°ì—´ì„ ê°€ë¦´ ìˆ˜ ì—†ìŒ";
     return 0;
 }
