@@ -1,24 +1,23 @@
 #include <iostream>
-#include <vector>
-#include <algorithm>
 using namespace std;
-vector<int> v;
+typedef long long ll;
+
+// euler-pi problem
+// n = p1^k1 x p2^k2 ... pm^km
+// pi(n) = n x (1-1/p1) x (1-1/p2) ... x (1-1/pm)
 
 int main() {
     ios_base::sync_with_stdio(false);
     cin.tie(nullptr);
-    int n, cnt, res = 0;
+    ll n;
     cin >> n;
-    v.resize(n);
-    for (auto & i : v) cin >> i;
-    sort(v.begin(), v.end());
-    for (int i=0; i<v.size(); i++) {
-        cnt = 1;
-        for (int j=1; (j < 5 && i+j<v.size()); j++) {
-            if (v[i+j] < v[i] + 5) cnt++;
-        }
-        res = max(res, cnt);
+    ll pi = n, prime = 2;
+    while (prime * prime <= n) {
+        if (!(n % prime)) pi = pi * (prime - 1) / prime;
+        while (!(n % prime)) n /= prime;
+        prime++;
     }
-    cout << 5 - res;
+    if (n > 1) pi = pi * (n-1) / n;
+    cout << pi;
     return 0;
 }
