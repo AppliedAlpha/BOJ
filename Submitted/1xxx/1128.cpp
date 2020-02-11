@@ -11,6 +11,8 @@ vector<pll> prs;
 vector<ll> total_price(51), total_profit(51);
 ll max_price, max_profit = 0;
 
+//LETS TRY
+
 bool comp(const pll &a, const pll &b) {
     if (a._price != b._price) return a._price > b._price;
     else return a._profit > b._profit;
