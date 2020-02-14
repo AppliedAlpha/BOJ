@@ -3,6 +3,7 @@
 typedef long long ll;
 using namespace std;
 
+// ~= 11401
 ll fact(ll x, ll res) {
     for (ll i=1; i<=x; i++) {
         res *= i;
