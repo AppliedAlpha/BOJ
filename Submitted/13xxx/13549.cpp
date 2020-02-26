@@ -20,12 +20,12 @@ int bfs(int st, int en) {
                 {now.first - 1, 1},
                 {now.first + 1, 1}};
         for (auto i : tmp) {
-             if (i.first >= 0 && i.first <= 100000) {
-                 if (!visited[i.first]) {
-                     q.push({i.first, now.second + i.second});
-                     visited[i.first] = true;
-                 }
-             }
+            if (i.first >= 0 && i.first <= 100000) {
+                if (!visited[i.first]) {
+                    q.push({i.first, now.second + i.second});
+                    visited[i.first] = true;
+                }
+            }
         }
     }
     return -1;
