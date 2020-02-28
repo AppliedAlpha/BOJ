@@ -7,7 +7,7 @@ int a[501][501];
 bool check[501][501];
 const int dx[] = {-1, 0, 1, 0}, dy[] = {0, 1, 0, -1};
 
-
+// ~= 1303
 int dfs(int x, int y) {
     int ret = 1;
     check[x][y] = true;
