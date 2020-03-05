@@ -2,10 +2,9 @@
 #include <vector>
 #include <algorithm>
 using namespace std;
-int n, q, a, b, c, temp, res = 0;
+int n, q, a, b, c, temp;
 vector<int> seg[400004];
 
-// ~= 13537
 //TRY
 void update(int i, int x, int nidx, int node_st, int node_en) {
     if (i < node_st || i > node_en) return;
@@ -41,11 +40,7 @@ int main() {
     cin >> q;
     while (q--) {
         cin >> a >> b >> c;
-        a ^= res;
-        b ^= res;
-        c ^= res;
-        res = query(a, b, c);
-        cout << res << '\n';
+        cout << query(a, b, c) << '\n';
     }
     return 0;
 }
