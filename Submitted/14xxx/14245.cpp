@@ -1,5 +1,4 @@
 #include <iostream>
-#include <algorithm>
 using namespace std;
 struct Tree {
     int value, lazy;
@@ -11,7 +10,7 @@ Tree seg[2000000] = {0, 0, };
 //Lazy Propagation
 void lazy(int idx, int st, int en) {
     if (seg[idx].lazy) { //Lazy Check
-        if ((en - st + 1) % 2) seg[idx].value ^= seg[idx].lazy;
+        seg[idx].value ^= seg[idx].lazy;
         if (st != en) {
             seg[2*idx].lazy ^= seg[idx].lazy;
             seg[2*idx+1].lazy ^= seg[idx].lazy;
@@ -24,11 +23,8 @@ int update_range(int i, int j, int val, int idx, int st, int en) {
     lazy(idx, st, en);
     if (j < st || i > en) return seg[idx].value;
     if (i <= st && j >= en) {
-        if ((en - st + 1) % 2) seg[idx].value ^= val;
-        if (st != en) {
-            seg[2*idx].lazy ^= val;
-            seg[2*idx+1].lazy ^= val;
-        }
+        seg[idx].lazy ^= val;
+        lazy(idx, st, en);
         return seg[idx].value;
     }
     int mid = (st + en) / 2;
@@ -59,11 +55,11 @@ int main() {
         cin >> a;
         if (a == 1) {
             cin >> b >> c >> d;
-            update_range(min(b, c)+1, max(b, c)+1, d);
+            update_range(b+1, c+1, d);
         }
         else {
-            cin >> b >> c;
-            cout << query(min(b, c)+1, max(b, c)+1) << '\n';
+            cin >> b;
+            cout << query(b+1, b+1) << '\n';
         }
     }
     return 0;
