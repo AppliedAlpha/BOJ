@@ -2,43 +2,37 @@
 #include <vector>
 #include <algorithm>
 using namespace std;
-struct pii {
-    int num, dis;
-};
-bool visited[40003];
-int n, m, a, b, c, dep[40003], parent[40003][17], dist[40003][17];
-vector<vector<pii>> adjacent;
+bool visited[100003];
+int n, m, a, b, dep[100003], parent[100003][21];
+vector<vector<int>> adjacent;
 
+// TRY (LCA)
 void dfs(int idx, int depth) {
     visited[idx] = true;
     dep[idx] = depth;
-    for (pii u : adjacent[idx]) {
-        if (visited[u.num]) continue;
-        parent[u.num][0] = idx; // uÀÇ ºÎ¸ð (parent[u][0]) ÁöÁ¤ -> idx
-        dist[u.num][0] = u.dis;
-        dfs(u.num, depth + 1);
+    for (int u : adjacent[idx]) {
+        if (visited[u]) continue;
+        parent[u][0] = idx; // uì˜ ë¶€ëª¨ (parent[u][0]) ì§€ì • -> idx
+        dfs(u, depth + 1);
     }
 }
 
 void par() {
-    // ¿¬¼ÓÇØ¼­ ºÎ¸ð Ã£±â (j: index, i: degree)
-    for (int i=1; i<17; i++) {
-        for (int j=1; j<=n; j++) {
+    // ì—°ì†í•´ì„œ ë¶€ëª¨ ì°¾ê¸° (j: index, i: degree)
+    for (int i=1; i<21; i++)
+        for (int j=1; j<=n; j++)
             parent[j][i] = parent[parent[j][i-1]][i-1];
-            dist[j][i] += dist[dist[j][i-1]][i-1];
-        }
-    }
 }
 
 int lca(int x, int y) {
     if (dep[x] > dep[y]) swap(x, y); // dep[x] <= dep[y]
     for (int i=20; i>=0; i--) {
-        // ±íÀÌ Â÷ÀÌ°¡ ÀÖÀ¸¸é Á¶»ó Ã£¾Æ°¡±â
+        // ê¹Šì´ ì°¨ì´ê°€ ìžˆìœ¼ë©´ ì¡°ìƒ ì°¾ì•„ê°€ê¸°
         if (dep[y] - dep[x] >= (1 << i))
             y = parent[y][i];
     }
-    if (x == y) return x; // °°Àº Á¶»óÀ» ¸¸³µÀ¸¸é return
-    // Á¶»óÀÌ ´Ù¸£´Ù¸é -> °°À» ¶§±îÁö Á¶»ó Ã£±â
+    if (x == y) return x; // ê°™ì€ ì¡°ìƒì„ ë§Œë‚¬ìœ¼ë©´ return
+    // ì¡°ìƒì´ ë‹¤ë¥´ë‹¤ë©´ -> ê°™ì„ ë•Œê¹Œì§€ ì¡°ìƒ ì°¾ê¸°
     for (int i=20; i>=0; i--) {
         if (parent[x][i] != parent[y][i]) {
             x = parent[x][i];
@@ -53,13 +47,13 @@ int main() {
     cin.tie(nullptr); cout.tie(nullptr);
     cin >> n;
     adjacent.resize(n+1);
-    for (int i=0; i<n-1; i++) { // ÀÌ¾îÁø ³ëµå Ã³¸®
-        cin >> a >> b >> c;
-        adjacent[a].push_back({b, c});
-        adjacent[b].push_back({a, c});
+    for (int i=0; i<n-1; i++) { // ì´ì–´ì§„ ë…¸ë“œ ì²˜ë¦¬
+        cin >> a >> b;
+        adjacent[a].push_back(b);
+        adjacent[b].push_back(a);
     }
     dfs(1, 0); // DFS
-    par(); // ºÎ¸ð ¹× Á¶»ó ÀüÃ³¸®
+    par(); // ë¶€ëª¨ ë° ì¡°ìƒ ì „ì²˜ë¦¬
     cin >> m;
     while (m--) {
         cin >> a >> b;
