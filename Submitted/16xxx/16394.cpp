@@ -6,6 +6,6 @@ int main() {
     cin.tie(nullptr); cout.tie(nullptr);
     int n;
     cin >> n;
-    cout << n*(n-1);
+    cout << n - 1946;
     return 0;
 }
