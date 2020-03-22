@@ -1,29 +1,3 @@
-/*
-#include <iostream>
-#define mod 1000000007
-using namespace std;
-typedef long long ll;
-
-// Squaring
-ll s(ll k, ll n) {
-    if (k) {
-        ll res = 0LL;
-        for (int i=1; i<=n; i++) res = (res + s(k-1, i)) % mod;
-        return res;
-    }
-    else return n;
-}
-
-int main() {
-    ios_base::sync_with_stdio(false);
-    cin.tie(nullptr);
-    ll k, n;
-    cin >> k >> n;
-    cout << s(k, n);
-    return 0;
-}
-*/
-
 #include <iostream>
 #include <vector>
 #define mod 1000000007
@@ -33,7 +7,7 @@ typedef vector<vector<ll>> matrix;
 matrix self;
 
 /*
- ¡°»≠Ωƒ
+ Ï†êÌôîÏãù
 
  [ 1       ] = [ 1 0 ] [ 1         ]
  [ S(0, n) ] = [ 1 1 ] [ S(0, n-1) ]
@@ -65,11 +39,6 @@ matrix _pow(const matrix &a, ll n) {
         n /= 2;
     }
     return res;
-    /*
-    if (n == 0) return self;
-    if (n == 1) return a;
-    return _mul(_pow(_mul(a, a), n/2), _pow(a, n%2));
-    */
 }
 
 int main() {
@@ -83,7 +52,7 @@ int main() {
     matrix c(k+2, vector<ll>(k+2));
     for (int i=0; i<k+2; i++) {
         c[i][i] = 1;
-        self = c; // «◊µÓø¯ ∏∏µÈ±‚
+        self = c; // Ìï≠Îì±Ïõê ÎßåÎì§Í∏∞
         for (int j=0; j<=i; j++) a[i][j] = 1;
     }
 
