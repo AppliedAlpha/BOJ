@@ -1,8 +1,7 @@
 #include <iostream>
 using namespace std;
-int n, a, seg[400004], arr[100002], input[100002];
+int n, a, seg[400004], arr[100002];
 
-// ~= 1849
 int update(int i, int x, int idx, int st, int en) {
     if (i < st || i > en) return seg[idx];
     if (st == en) return seg[idx] = x;
@@ -26,12 +25,12 @@ int main() {
     cin.tie(nullptr);
     cin >> n;
     for (int i=1; i<=n; i++) update(i, 1);
-    for (int i=1; i<=n; i++) cin >> input[i];
-    for (int i=n; i>=1; i--) {
-        int tmp = query(input[i]+1);
+    for (int i=1; i<=n; i++) {
+        cin >> a;
+        int tmp = query(a+1);
         arr[tmp] = i;
         update(tmp, 0);
     }
-    for (int i=n; i>=1; i--) cout << arr[i] << ' ';
+    for (int i=1; i<=n; i++) cout << arr[i] << '\n';
     return 0;
 }
