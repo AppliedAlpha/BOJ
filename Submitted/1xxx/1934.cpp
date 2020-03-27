@@ -1,3 +1,21 @@
+//20200326 (C++17, std::lcm)
+#include <iostream>
+#include <numeric>
+using namespace std;
+int n, a, b;
+
+int main() {
+    ios_base::sync_with_stdio(false);
+    cin.tie(nullptr); cout.tie(nullptr);
+    cin >> n;
+    while (n--) {
+        cin >> a >> b;
+        cout << lcm(a, b) << '\n';
+    }
+    return 0;
+}
+
+//20191230
 #include <iostream>
 using namespace std;
 

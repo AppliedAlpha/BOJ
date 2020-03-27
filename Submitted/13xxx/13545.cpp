@@ -5,13 +5,14 @@
 #include <algorithm>
 using namespace std;
 
-/* ~= 13545, 13546
+/* ~= 13546
  * Sqrt Decomposition, Mo's Algorithm
+ * Please Check Range...
  */
 
-int n, m, k, sqrtn, a, b;
-int ans[100003], v[100003], s[100003], cnt[1000003], bucket[500];
-list<int> visited[1000003];
+int n, m, sqrtn, a, b, t = 0;
+int ans[100003] = {0, }, v[100003] = {0, }, s[100003] = {0, }, cnt[100003] = {1, }, bucket[500] = {1, };
+list<int> visited[100003];
 
 struct seg {
     int idx, s, e;
@@ -57,14 +58,14 @@ void query_sub(int x) {
 int main() {
     ios_base::sync_with_stdio(false);
     cin.tie(nullptr); cout.tie(nullptr);
-    cin >> n >> k;
+    cin >> n;
     sqrtn = sqrt(n);
     for (int i=1; i<=n; i++) cin >> v[i];
     for (int i=1; i<=n; i++) {
-        v[i] %= k;
-        s[i] = (s[i-1] + v[i]) % k;
-        // s[i] = (v[1] + v[2] + ... v[i]) % k
+        s[i] = s[i-1] + v[i];
+        t = min(t, s[i]);
     }
+    for (int i=0; i<=n; i++) s[i] -= t;
     cin >> m;
     for (int i=0; i<m; i++) {
         cin >> a >> b;
@@ -74,7 +75,6 @@ int main() {
 
     query_add(1);
     int rs = 1, re = 1;
-    cnt[0] = bucket[0] = 2*k;
 
     for (int i=0; i<m; i++) {
         seg q = query[i];
