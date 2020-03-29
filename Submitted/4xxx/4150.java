@@ -12,7 +12,7 @@ class Main {
         BigInteger a, b, c;
         a = BigInteger.ZERO;
         b = BigInteger.ONE;
-        for (int i=2; i<=n; i++) {
+        for (int tmp=2; tmp<=n; tmp++) {
             c = a.add(b);
             a = b;
             b = c;

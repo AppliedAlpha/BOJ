@@ -1,11 +1,11 @@
 #include <iostream>
+#include <vector>
 using namespace std;
 typedef long long ll;
-int n, m, k, a, b;
-ll seg[2100000] = {0LL, }, temp, c;
+ll res = 0;
+int seg[4000004], n;
+vector<int> v;
 
-//Segment Tree
-//Blog 86 -> Explanation
 ll update(int i, ll x, int idx, int st, int en) {
     if (i < st || i > en) return seg[idx];
     if (st == en) return seg[idx] = x;
@@ -26,17 +26,14 @@ ll query(int i, int j) { return query(i, j, 1, 1, n); }
 
 int main() {
     ios_base::sync_with_stdio(false);
-    cin.tie(nullptr);
-    cin >> n >> m >> k;
-    int q = m + k;
-    for (int i=1; i<=n; i++) {
-        cin >> temp;
-        update(i, temp);
+    cin.tie(nullptr); cout.tie(nullptr);
+    cin >> n;
+    v.resize(n);
+    for (auto & i : v) cin >> i;
+    for (int i=0; i<n; i++) {
+        res += query(v[i]+1, n);
+        update(v[i], 1);
     }
-    while (q--) {
-        cin >> a >> b >> c;
-        if (a == 1) update(b, c);
-        else cout << query(b, (int)c) << '\n';
-    }
+    cout << res;
     return 0;
 }

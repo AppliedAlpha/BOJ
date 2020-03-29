@@ -2,10 +2,10 @@
 #include <map>
 using namespace std;
 typedef long long ll;
-int seg[500001], v[500001], n, tmp;
+ll res = 0;
+int seg[500001], n, temp;
 map<int, int> m;
 
-// Similar Technic But Not The Same ~= 10090
 // Binary Indexed Tree (From 1280.cpp)
 // TRY
 
@@ -29,16 +29,17 @@ int main() {
     ios_base::sync_with_stdio(false);
     cin.tie(nullptr); cout.tie(nullptr);
     cin >> n;
-    for (int i=0; i<n; i++) {
-        cin >> v[i];
-        if (!m[v[i]]) m[v[i]]++;
+    for (int i=1; i<=n; i++) {
+        cin >> temp;
+        m[temp] = i;
+        // m[temp] = temp의 A 위치
     }
-    for (auto & [i, j] : m) m[i] = ++tmp;
-    // C++17 structured bindings, how awesome!
-    for (int i=0; i<n; i++) {
-        v[i] = m[v[i]];
-        cout << (i+1) - query(v[i]) << '\n';
-        update(v[i], 1);
+    for (int i=1; i<=n; i++) {
+        cin >> temp;
+        res += (i-1) - query(m[temp]);
+        update(m[temp], 1);
+        // m[temp] (temp A 위치) 값이 한 번 들어옴
     }
+    cout << res;
     return 0;
 }
