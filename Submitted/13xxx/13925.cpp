@@ -20,7 +20,7 @@ struct _lazy {
 
 ll seg[400004];
 _lazy lazy[400004];
-int n, m, a, b, c, v, temp, arr[100001];
+int n, m, a, b, c, v, temp;
 
 // 10999 ?
 // Lazy Propagation
