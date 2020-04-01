@@ -2,12 +2,12 @@
 #include <vector>
 #include <algorithm>
 using namespace std;
-int a;
+long long a, b;
 
 int main() {
     ios_base::sync_with_stdio(false);
     cin.tie(nullptr); cout.tie(nullptr);
-    cin >> a;
-    cout << a-543;
+    cin >> a >> b;
+    cout << (a+b)*(a-b);
     return 0;
 }

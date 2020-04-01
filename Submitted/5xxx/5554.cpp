@@ -2,12 +2,12 @@
 #include <vector>
 #include <algorithm>
 using namespace std;
-int a;
+int n, sum = 0;
 
 int main() {
     ios_base::sync_with_stdio(false);
     cin.tie(nullptr); cout.tie(nullptr);
-    cin >> a;
-    cout << a-543;
+    while (cin >> n) sum += n;
+    cout << sum / 60 << '\n' << sum % 60;
     return 0;
 }
