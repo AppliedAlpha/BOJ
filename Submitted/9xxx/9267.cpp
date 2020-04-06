@@ -2,38 +2,37 @@
 using namespace std;
 typedef long long ll;
 
-ll _gcd(ll a, ll b) {
-    ll c;
-    while (a % b) {
-        c = a % b;
-        a = b;
-        b = c;
-    }
-    return b;
+struct p { ll a, b, c; };
+
+// Division of Negative Number?
+p extended_euc(ll a, ll b) {
+    if (b == 0LL) return {a, 1, 0};
+    p res = extended_euc(b, a % b);
+    return {res.a, res.c, res.b - (a / b) * res.c};
 }
 
 bool solve(ll a, ll b, ll s) {
     if (!a && !b) return !s;
     if (!a) return !(s % b);
     if (!b) return !(s % a);
-    if (a == s || b == s) return true;
-    //tri ex = extended_eu(a, b);
-    ll mod = _gcd(a, b);
-    if (s % mod) return false;
-    ll x = 1;
-    while ((s-a*x)%b) x++;
-    ll y = (s-a*x)/b;
+    p temp = extended_euc(a, b);
+    ll g = temp.a, x = temp.b, y = temp.c;
+    if (s % g) return false;
+    ll diff = abs(b/g);
+    x = (x % diff) * (s/g % diff) % diff;
+    if (x < 0) x += diff;
+    y = (s - a*x) / b;
     while (y > 0) {
-        if (_gcd(x, y) == 1) return true;
-        x += b / mod;
-        y -= a / mod;
+        if (extended_euc(x, y).a == 1) return true;
+        x += b/g;
+        y -= a/g;
     }
     return false;
 }
 
 int main() {
     ios_base::sync_with_stdio(false);
-    cin.tie(nullptr);
+    cin.tie(nullptr); cout.tie(nullptr);
     ll a, b, s;
     cin >> a >> b >> s;
     cout << (solve(a, b, s) ? "YES" : "NO");
