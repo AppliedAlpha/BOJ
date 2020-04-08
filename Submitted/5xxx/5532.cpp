@@ -5,8 +5,8 @@ using namespace std;
 int main() {
     ios_base::sync_with_stdio(false);
     cin.tie(nullptr);
-    int a, b, c, x, y;
-    cin >> a >> b >> c >> x >> y;
-    cout << min(min(a, b), c) + min(x, y) - 50;
+    int l, a, b, c, d;
+    cin >> l >> a >> b >> c >> d;
+    cout << l - max(a/c + (bool)(a%c), b/d + (bool)(b%d));
     return 0;
 }
