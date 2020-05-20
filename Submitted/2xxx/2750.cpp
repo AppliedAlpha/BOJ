@@ -1,3 +1,25 @@
+// 20200519
+#include <iostream>
+#include <vector>
+#include <algorithm>
+#define all(x) x.begin(), x.end()
+using namespace std;
+
+vector<int> v;
+
+int main() {
+    ios_base::sync_with_stdio(false);
+    cin.tie(nullptr);
+    int n;
+    cin >> n;
+    v.resize(n);
+    for (auto & i : v) cin >> i;
+    sort(all(v));
+    for (auto i : v) cout << i << '\n';
+    return 0;
+}
+
+// 20191218
 #include <iostream>
 #include <vector>
 #include <algorithm>
