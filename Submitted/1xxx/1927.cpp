@@ -1,17 +1,7 @@
 #include <iostream>
 #include <queue>
-#include <cmath>
 using namespace std;
-
-struct cmp : public binary_function<int, int, bool>
-{
-    bool operator()(const int& a, const int& b) const {
-        if (abs(a) == abs(b)) return a > b;
-        else return abs(a) > abs(b);
-    }
-};
-
-priority_queue<int, vector<int>, cmp> pq;
+priority_queue<int, vector<int>, greater<int>> pq;
 
 int main() {
     ios_base::sync_with_stdio(false);

@@ -1,18 +1,9 @@
 #include <iostream>
 #include <queue>
-#include <cmath>
 using namespace std;
+priority_queue<int, vector<int>, less<int>> pq;
 
-struct cmp : public binary_function<int, int, bool>
-{
-    bool operator()(const int& a, const int& b) const {
-        if (abs(a) == abs(b)) return a > b;
-        else return abs(a) > abs(b);
-    }
-};
-
-priority_queue<int, vector<int>, cmp> pq;
-
+// ~= 1927
 int main() {
     ios_base::sync_with_stdio(false);
     cin.tie(nullptr); cout.tie(nullptr);

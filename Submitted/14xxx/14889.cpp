@@ -2,8 +2,6 @@
 #include <cstdlib>
 #include <algorithm>
 using namespace std;
-int arr[20][20], n, res = 2147483646;
-bool check[20];
 
 void solve(int cnt, int idx) {
     if (idx == n) return;
