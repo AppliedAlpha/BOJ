@@ -10,19 +10,18 @@
 using namespace std;
 typedef long long i64;
 typedef pair<int, int> pii;
-
-int n, m;
-
-i64 solve() {
-    cin >> m;
-    return 0;
-}
+int n;
 
 int main() {
     ios_base::sync_with_stdio(false);
     cin.tie(nullptr);
     cout.tie(nullptr);
     cin >> n;
-    while (n--) cout << solve() << '\n';
+    while (n--) {
+        string str;
+        cin >> str;
+        cout << str[0] << str[str.length()-1];
+        endl;
+    }
     return 0;
 }

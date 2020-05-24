@@ -11,11 +11,16 @@ using namespace std;
 typedef long long i64;
 typedef pair<int, int> pii;
 
-int n, m;
+int n;
 
-i64 solve() {
-    cin >> m;
-    return 0;
+void solve() {
+    string s1, s2;
+    cin >> s1 >> s2;
+    cout << "Distances: ";
+    for (int i=0; i<s1.length(); i++) {
+        cout << s2[i] - s1[i] + (s1[i] <= s2[i] ? 0 : 26) << " ";
+    }
+    endl;
 }
 
 int main() {
@@ -23,6 +28,6 @@ int main() {
     cin.tie(nullptr);
     cout.tie(nullptr);
     cin >> n;
-    while (n--) cout << solve() << '\n';
+    while (n--) solve();
     return 0;
 }

@@ -11,18 +11,22 @@ using namespace std;
 typedef long long i64;
 typedef pair<int, int> pii;
 
-int n, m;
-
-i64 solve() {
-    cin >> m;
-    return 0;
-}
+string str;
 
 int main() {
     ios_base::sync_with_stdio(false);
     cin.tie(nullptr);
     cout.tie(nullptr);
-    cin >> n;
-    while (n--) cout << solve() << '\n';
+    cin >> str;
+    if (str.length() < 3) cout << "0\n0";
+    else {
+        int joi = 0, ioi = 0;
+        for (int i=0; i<str.length()-2; i++) {
+            auto sub = str.substr(i, 3);
+            if (sub == "JOI") joi++;
+            else if (sub == "IOI") ioi++;
+        }
+        cout << joi << '\n' << ioi;
+    }
     return 0;
 }

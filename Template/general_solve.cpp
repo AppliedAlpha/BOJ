@@ -6,6 +6,7 @@
 #define all(x) x.begin(), x.end()
 #define i32_max 2147483646
 #define mod 1000000007
+#define endl cout << '\n'
 using namespace std;
 typedef long long i64;
 typedef pair<int, int> pii;
