@@ -8,14 +8,15 @@
 #define mod 1000000007
 using namespace std;
 typedef long long i64;
-typedef pair<int, int> pii;
 
 int n, m;
+string s1, s2;
 
 int main() {
     ios_base::sync_with_stdio(false);
     cin.tie(nullptr);
     cout.tie(nullptr);
-    cin >> n;
+    cin >> s1 >> s2;
+    cout << (s1.length() >= s2.length() ? "go" : "no");
     return 0;
 }

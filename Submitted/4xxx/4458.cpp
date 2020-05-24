@@ -8,7 +8,6 @@
 #define mod 1000000007
 using namespace std;
 typedef long long i64;
-typedef pair<int, int> pii;
 
 int n, m;
 
@@ -17,5 +16,13 @@ int main() {
     cin.tie(nullptr);
     cout.tie(nullptr);
     cin >> n;
+    string temp;
+    getline(cin, temp);
+    while (n--) {
+        string str;
+        getline(cin, str);
+        str[0] -= str[0] >= 'a' ? 32 : 0;
+        cout << str << '\n';
+    }
     return 0;
 }

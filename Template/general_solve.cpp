@@ -10,6 +10,12 @@ using namespace std;
 typedef long long i64;
 typedef pair<int, int> pii;
 
+/*
+ greater<int> DESC;
+ less<int> ASC (Default);
+ compare a < b (ASC), a > b (DESC)
+ */
+
 int n, m;
 
 int main() {

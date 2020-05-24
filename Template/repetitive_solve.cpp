@@ -12,10 +12,16 @@ typedef pair<int, int> pii;
 
 int n, m;
 
+i64 solve() {
+    cin >> m;
+    return 0;
+}
+
 int main() {
     ios_base::sync_with_stdio(false);
     cin.tie(nullptr);
     cout.tie(nullptr);
     cin >> n;
+    while (n--) cout << solve() << '\n';
     return 0;
 }
