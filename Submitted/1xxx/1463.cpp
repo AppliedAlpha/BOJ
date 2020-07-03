@@ -1,5 +1,34 @@
 #include <iostream>
 #include <vector>
+#include <algorithm>
+#define i32_max 2147483646
+using namespace std;
+
+int n;
+
+int main() {
+    ios_base::sync_with_stdio(false);
+    cin.tie(nullptr);
+    cout.tie(nullptr);
+    cin >> n;
+
+    vector<int> v(n+1, i32_max);
+    v[1] = 0;
+
+    for (int i=2; i<=n; i++) {
+        if (!(i % 3)) v[i] = min(v[i/3]+1, v[i]);
+        if (!(i % 2)) v[i] = min(v[i/2]+1, v[i]);
+        v[i] = min(v[i-1]+1, v[i]);
+    }
+    cout << v[n];
+    return 0;
+}
+
+
+
+// 20191212
+#include <iostream>
+#include <vector>
 #define INF 2147483646
 using namespace std;
 vector<int> value;
