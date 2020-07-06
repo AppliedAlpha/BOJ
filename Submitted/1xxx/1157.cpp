@@ -1,15 +1,10 @@
 #include <iostream>
 #include <vector>
 #include <string>
-#include <queue>
-#include <cmath>
 #include <map>
 #include <utility>
 #include <algorithm>
 #define all(x) x.begin(), x.end()
-#define i32_max 2147483646
-#define mod 1000000009
-#define endl cout << '\n'
 #define x first
 #define y second
 using namespace std;
@@ -48,4 +43,3 @@ int main() {
 
     return 0;
 }
-
