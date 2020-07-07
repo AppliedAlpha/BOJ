@@ -1,20 +1,7 @@
 #include <iostream>
-#include <vector>
 #include <string>
-#include <queue>
-#include <cmath>
-#include <map>
-#include <utility>
-#include <algorithm>
-#define all(x) x.begin(), x.end()
-#define i32_max 2147483646
-#define mod 1000000009
 #define endl cout << '\n'
-#define x first
-#define y second
 using namespace std;
-typedef long long i64;
-typedef pair<int, int> pii;
 
 int solve(string str, bool dir) {
     bool push = false;
