@@ -1,34 +1,32 @@
 #include <iostream>
+#include <iomanip>
 #include <vector>
 #include <string>
 #include <queue>
 #include <cmath>
-#include <map>
 #include <utility>
 #include <numeric>
 #include <algorithm>
-#define all(x) x.begin(), x.end()
 #define mod 1'000'000'007
-#define i32_max 2'147'483'646
-#define endl cout << '\n'
-#define x first
-#define y second
 using namespace std;
-typedef long long i64;
-typedef pair<int, int> pii;
 
-/*
- greater<int> DESC;
- less<int> ASC (Default);
- compare a < b (ASC), a > b (DESC)
- */
-
-int n, m;
+vector<double> v;
 
 int main() {
     ios_base::sync_with_stdio(false);
     cin.tie(nullptr);
     cout.tie(nullptr);
+
+    int n;
     cin >> n;
+    v.resize(n);
+    double part = 1, res = numeric_limits<double>::min();
+
+    for (auto & i : v) cin >> i;
+    for (int i=0; i<n; i++) {
+        part = max(1.0, part) * v[i];
+        res = max(part, res);
+    }
+    cout << fixed << setprecision(3) << res;
     return 0;
 }

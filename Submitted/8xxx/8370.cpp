@@ -17,18 +17,14 @@ using namespace std;
 typedef long long i64;
 typedef pair<int, int> pii;
 
-/*
- greater<int> DESC;
- less<int> ASC (Default);
- compare a < b (ASC), a > b (DESC)
- */
-
-int n, m;
+int a, b, c, d;
 
 int main() {
     ios_base::sync_with_stdio(false);
     cin.tie(nullptr);
     cout.tie(nullptr);
-    cin >> n;
+
+    cin >> a >> b >> c >> d;
+    cout << a*b + c*d;
     return 0;
 }
