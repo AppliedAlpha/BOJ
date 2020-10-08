@@ -5,10 +5,10 @@ class Main {
     public static void main(String[] args) {
         Scanner c = new Scanner(System.in);
         int n = c.nextInt();
-        System.out.println(fibo(n));
+        System.out.println(arr(n));
     }
 
-    private static BigInteger fibo(int n) {
+    private static BigInteger arr(int n) {
         BigInteger a, b, c;
         a = BigInteger.ZERO;
         b = BigInteger.ONE;
